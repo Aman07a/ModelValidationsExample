@@ -9,7 +9,8 @@ namespace ModelValidationsExample.Controllers
         [Route("register")]
         // [Bind(nameof(Person.PersonName), nameof(Person.Email), nameof(Person.Password), nameof(Person.ConfirmPassword))]
         // Example JSON: { "PersonName": "William", "Email": "william@gmail.com", "Phone": "123456", "Password": "william123, "ConfirmPassword": "william123" }
-        public IActionResult Index([FromBody][ModelBinder(BinderType = typeof(PersonModelBinder))] Person person)
+        // [FromBody][ModelBinder(BinderType = typeof(PersonModelBinder))]
+        public IActionResult Index(Person person)
         {
             if (!ModelState.IsValid)
             {
