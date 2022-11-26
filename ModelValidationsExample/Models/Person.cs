@@ -34,7 +34,7 @@ namespace ModelValidationsExample.Models
 
         // [MinimumYearValidator(2005, ErrorMessage = "Date of Birth should not be newer than Jan 01, {0}")]
         [MinimumYearValidator(2005)]
-        [BindNever]
+        // [BindNever]
         public DateTime? DateOfBirth { get; set; }
 
         public DateTime? FromDate { get; set; }

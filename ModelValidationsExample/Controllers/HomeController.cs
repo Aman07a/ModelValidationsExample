@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModelValidationsExample.CustomModelBinders;
 using ModelValidationsExample.Models;
 
 namespace ModelValidationsExample.Controllers
@@ -7,7 +8,8 @@ namespace ModelValidationsExample.Controllers
     {
         [Route("register")]
         // [Bind(nameof(Person.PersonName), nameof(Person.Email), nameof(Person.Password), nameof(Person.ConfirmPassword))]
-        public IActionResult Index([FromBody] Person person)
+        // Example JSON: { "PersonName": "William", "Email": "william@gmail.com", "Phone": "123456", "Password": "william123, "ConfirmPassword": "william123" }
+        public IActionResult Index([FromBody][ModelBinder(BinderType = typeof(PersonModelBinder))] Person person)
         {
             if (!ModelState.IsValid)
             {
